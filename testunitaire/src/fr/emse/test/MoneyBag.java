@@ -1,5 +1,6 @@
 package fr.emse.test;
 
+import java.util.Objects;
 import java.util.Vector;
 class MoneyBag {
 private Vector<Money> fMonies = new Vector<Money>();
@@ -29,5 +30,16 @@ m.currency()));
 }
 }
 }
-
+@Override
+public boolean equals(Object money) {
+    if (this == money) {
+        return true;
+    }
+    if (money == null || getClass() != money.getClass()) {
+        return false;
+    }
+  
+	MoneyBag other = (MoneyBag) money;
+    return fMonies.equals(other.fMonies);
+}
 }
